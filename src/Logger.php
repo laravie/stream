@@ -2,7 +2,7 @@
 
 namespace Laravie\Stream;
 
-abstract class Logger
+interface Logger
 {
     /**
      * Send info message.

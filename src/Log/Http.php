@@ -5,7 +5,7 @@ namespace Laravie\Stream\Log;
 use Laravie\Stream\Logger;
 use React\Stream\WritableStreamInterface;
 
-class Http extends Logger
+class Http implements Logger
 {
     /**
      * The stream writer implementation.

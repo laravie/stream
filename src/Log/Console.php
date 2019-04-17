@@ -6,7 +6,7 @@ use Laravie\Stream\Logger;
 use React\Stream\WritableStreamInterface;
 use JakubOnderka\PhpConsoleColor\ConsoleColor;
 
-class Console extends Logger
+class Console implements Logger
 {
     /**
      * The stream writer implementation.
