@@ -20,18 +20,18 @@ class Console implements Logger
      *
      * @var \JakubOnderka\PhpConsoleColor\ConsoleColor
      */
-    protected $styler;
+    protected $consoleColor;
 
     /**
      * Construct a console logger.
      *
      * @param \React\Stream\WritableStreamInterface  $writer
-     * @param \JakubOnderka\PhpConsoleColor\ConsoleColor  $styler
+     * @param \JakubOnderka\PhpConsoleColor\ConsoleColor  $consoleColor
      */
-    public function __construct(WritableStreamInterface $writer, ConsoleColor $styler)
+    public function __construct(WritableStreamInterface $writer, ConsoleColor $consoleColor)
     {
         $this->writer = $writer;
-        $this->styler = $styler;
+        $this->consoleColor = $consoleColor;
     }
 
     /**
@@ -55,7 +55,7 @@ class Console implements Logger
      */
     public function warn(string $message): void
     {
-        $this->writer->write($this->styler->apply('yellow', $message));
+        $this->writer->write($this->consoleColor->apply('yellow', $message));
     }
 
     /**
@@ -67,6 +67,6 @@ class Console implements Logger
      */
     public function error(string $message): void
     {
-        $this->writer->write($this->styler->apply('red', $message));
+        $this->writer->write($this->consoleColor->apply('red', $message));
     }
 }
