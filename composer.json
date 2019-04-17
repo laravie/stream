@@ -14,13 +14,18 @@
             "Laravie\\Stream\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Laravie\\Stream\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "jakub-onderka/php-console-color": "~0.2",
         "react/stream": "^1.1"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",
-        "orchestra/testbench": "^3.5",
+        "orchestra/testbench": "^3.8",
         "phpunit/phpunit": "^7.5 || ^8.0"
     },
     "config": {
