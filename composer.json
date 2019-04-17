@@ -1,0 +1,30 @@
+{
+    "name": "laravie/stream",
+    "description": "Common Component using ReactPHP Stream",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravie\\Stream\\": "src/"
+        }
+    },
+    "require": {
+        "jakub-onderka/php-console-color": "~0.2",
+        "react/stream": "^1.1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
