@@ -33,7 +33,7 @@ class Http implements Logger
      */
     public function info(string $message): void
     {
-        $this->writer->write($message);
+        $this->writer->write("{$message}\n");
     }
 
     /**
@@ -45,7 +45,7 @@ class Http implements Logger
      */
     public function warn(string $message): void
     {
-        $this->writer->write($message);
+        $this->info($message);
     }
 
     /**
@@ -57,6 +57,6 @@ class Http implements Logger
      */
     public function error(string $message): void
     {
-        $this->writer->write($message);
+        $this->info($message);
     }
 }

@@ -43,7 +43,7 @@ class Console implements Logger
      */
     public function info(string $message): void
     {
-        $this->writer->write($message);
+        $this->writer->write("{$message}\n");
     }
 
     /**
@@ -55,7 +55,7 @@ class Console implements Logger
      */
     public function warn(string $message): void
     {
-        $this->writer->write($this->consoleColor->apply('yellow', $message));
+        $this->info($this->consoleColor->apply('yellow', $message));
     }
 
     /**
@@ -67,6 +67,6 @@ class Console implements Logger
      */
     public function error(string $message): void
     {
-        $this->writer->write($this->consoleColor->apply('red', $message));
+        $this->info($this->consoleColor->apply('red', $message));
     }
 }

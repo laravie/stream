@@ -35,7 +35,7 @@ class HttpTest extends TestCase
 
         $stub = new Http($writer);
 
-        $writer->shouldReceive('write')->once()->with('Hello world')->andReturnNull();
+        $writer->shouldReceive('write')->once()->with("Hello world\n")->andReturnNull();
 
         $stub->info('Hello world');
 
@@ -49,7 +49,7 @@ class HttpTest extends TestCase
 
         $stub = new Http($writer);
 
-        $writer->shouldReceive('write')->once()->with('Hello world')->andReturnNull();
+        $writer->shouldReceive('write')->once()->with("Hello world\n")->andReturnNull();
 
         $stub->warn('Hello world');
 
@@ -63,7 +63,7 @@ class HttpTest extends TestCase
 
         $stub = new Http($writer);
 
-        $writer->shouldReceive('write')->once()->with('Hello world')->andReturnNull();
+        $writer->shouldReceive('write')->once()->with("Hello world\n")->andReturnNull();
 
         $stub->error('Hello world');
 

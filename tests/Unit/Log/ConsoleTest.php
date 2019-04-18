@@ -38,7 +38,7 @@ class ConsoleTest extends TestCase
 
         $stub = new Console($writer, $styler);
 
-        $writer->shouldReceive('write')->once()->with('Hello world')->andReturnNull();
+        $writer->shouldReceive('write')->once()->with("Hello world\n")->andReturnNull();
 
         $stub->info('Hello world');
 
@@ -53,7 +53,7 @@ class ConsoleTest extends TestCase
 
         $stub = new Console($writer, $styler);
 
-        $writer->shouldReceive('write')->once()->with("\033[33mHello world\033[0m")->andReturnNull();
+        $writer->shouldReceive('write')->once()->with("\033[33mHello world\033[0m\n")->andReturnNull();
 
         $stub->warn('Hello world');
 
@@ -68,7 +68,7 @@ class ConsoleTest extends TestCase
 
         $stub = new Console($writer, $styler);
 
-        $writer->shouldReceive('write')->once()->with("\033[31mHello world\033[0m")->andReturnNull();
+        $writer->shouldReceive('write')->once()->with("\033[31mHello world\033[0m\n")->andReturnNull();
 
         $stub->error('Hello world');
 
