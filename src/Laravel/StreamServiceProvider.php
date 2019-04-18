@@ -35,11 +35,7 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
      */
     protected function getOutputStream()
     {
-        if (\defined('STDOUT')) {
-            return STDOUT;
-        }
-
-        return \fopen('php://output', 'w');
+        return \defined('STDOUT') ? STDOUT : \fopen('php://output', 'w');
     }
 
     /**
