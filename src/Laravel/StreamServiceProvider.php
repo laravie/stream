@@ -24,8 +24,22 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
         });
 
         $this->app->singleton(WritableStreamInterface::class, function (Application $app) {
-            return new WritableResourceStream(STDOUT, $app->make(LoopInterface::class));
+            return new WritableResourceStream($this->getOutputStream(), $app->make(LoopInterface::class));
         });
+    }
+
+    /**
+     * Get an output stream.
+     *
+     * @return object
+     */
+    protected function getOutputStream()
+    {
+        if (\defined('STDOUT')) {
+            return STDOUT;
+        }
+
+        return \fopen('php://output', 'w');
     }
 
     /**
