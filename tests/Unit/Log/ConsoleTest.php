@@ -23,7 +23,7 @@ class ConsoleTest extends TestCase
     public function it_has_proper_signature()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor;
+        $styler = new ConsoleColor();
 
         $stub = new Console($writer, $styler);
 
@@ -34,7 +34,7 @@ class ConsoleTest extends TestCase
     public function it_can_write_info()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor;
+        $styler = new ConsoleColor();
 
         $stub = new Console($writer, $styler);
 
@@ -49,7 +49,7 @@ class ConsoleTest extends TestCase
     public function it_can_write_warn()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor;
+        $styler = new ConsoleColor();
 
         $stub = new Console($writer, $styler);
 
@@ -64,7 +64,7 @@ class ConsoleTest extends TestCase
     public function it_can_write_error()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor;
+        $styler = new ConsoleColor();
 
         $stub = new Console($writer, $styler);
 

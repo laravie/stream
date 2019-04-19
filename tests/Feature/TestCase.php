@@ -19,5 +19,4 @@ abstract class TestCase extends Testing
             \Laravie\Stream\Laravel\StreamServiceProvider::class,
         ];
     }
-
 }
