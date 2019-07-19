@@ -20,7 +20,7 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
      */
     public function register()
     {
-        $this->app->singleton(LoopInterface::class, function () {
+        $this->app->singleton(LoopInterface::class, static function () {
             return Factory::create();
         });
 
@@ -40,7 +40,7 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
             return new WritableResourceStream(STDOUT, $eventLoop);
         }
 
-        return new ThroughStream(function ($data) {
+        return new ThroughStream(static function ($data) {
             echo "{$data}\n";
         });
     }
