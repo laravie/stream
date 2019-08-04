@@ -8,7 +8,6 @@ use React\EventLoop\LoopInterface;
 use Illuminate\Support\ServiceProvider;
 use React\Stream\WritableResourceStream;
 use React\Stream\WritableStreamInterface;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
 class StreamServiceProvider extends ServiceProvider implements DeferrableProvider
@@ -24,7 +23,7 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
             return Factory::create();
         });
 
-        $this->app->singleton(WritableStreamInterface::class, function (Application $app) {
+        $this->app->singleton(WritableStreamInterface::class, function ($app) {
             return $this->createOutputStream($app->make(LoopInterface::class));
         });
     }
