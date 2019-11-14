@@ -24,9 +24,6 @@ class Console implements Logger
 
     /**
      * Construct a console logger.
-     *
-     * @param \React\Stream\WritableStreamInterface  $writer
-     * @param \JakubOnderka\PhpConsoleColor\ConsoleColor  $consoleColor
      */
     public function __construct(WritableStreamInterface $writer, ConsoleColor $consoleColor)
     {
@@ -36,10 +33,6 @@ class Console implements Logger
 
     /**
      * Send info message.
-     *
-     * @param  string $message
-     *
-     * @return void
      */
     public function info(string $message): void
     {
@@ -48,10 +41,6 @@ class Console implements Logger
 
     /**
      * Send warning message.
-     *
-     * @param  string $message
-     *
-     * @return void
      */
     public function warn(string $message): void
     {
@@ -60,10 +49,6 @@ class Console implements Logger
 
     /**
      * Send error message.
-     *
-     * @param  string $message
-     *
-     * @return void
      */
     public function error(string $message): void
     {

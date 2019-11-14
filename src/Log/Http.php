@@ -16,8 +16,6 @@ class Http implements Logger
 
     /**
      * Construct a console logger.
-     *
-     * @param \React\Stream\WritableStreamInterface  $writer
      */
     public function __construct(WritableStreamInterface $writer)
     {
@@ -26,10 +24,6 @@ class Http implements Logger
 
     /**
      * Send info message.
-     *
-     * @param  string $message
-     *
-     * @return void
      */
     public function info(string $message): void
     {
@@ -38,10 +32,6 @@ class Http implements Logger
 
     /**
      * Send warning message.
-     *
-     * @param  string $message
-     *
-     * @return void
      */
     public function warn(string $message): void
     {
@@ -50,10 +40,6 @@ class Http implements Logger
 
     /**
      * Send error message.
-     *
-     * @param  string $message
-     *
-     * @return void
      */
     public function error(string $message): void
     {

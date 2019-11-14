@@ -31,8 +31,6 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
 
     /**
      * Get an output stream.
-     *
-     * @return \React\Stream\WritableStreamInterface
      */
     protected function createOutputStream(LoopInterface $eventLoop): WritableStreamInterface
     {
