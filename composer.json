@@ -20,6 +20,7 @@
         }
     },
     "require": {
+        "php": ">=7.1",
         "jakub-onderka/php-console-color": "~0.2",
         "react/stream": "^1.1"
     },
