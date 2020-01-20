@@ -2,9 +2,9 @@
 
 namespace Laravie\Stream\Log;
 
+use JakubOnderka\PhpConsoleColor\ConsoleColor;
 use Laravie\Stream\Logger;
 use React\Stream\WritableStreamInterface;
-use JakubOnderka\PhpConsoleColor\ConsoleColor;
 
 class Console implements Logger
 {

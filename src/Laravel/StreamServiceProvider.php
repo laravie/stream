@@ -2,14 +2,14 @@
 
 namespace Laravie\Stream\Laravel;
 
-use React\EventLoop\Factory;
-use React\Stream\ThroughStream;
-use React\EventLoop\LoopInterface;
-use Illuminate\Support\ServiceProvider;
-use React\Stream\WritableResourceStream;
-use React\Stream\WritableStreamInterface;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\ServiceProvider;
+use React\EventLoop\Factory;
+use React\EventLoop\LoopInterface;
+use React\Stream\ThroughStream;
+use React\Stream\WritableResourceStream;
+use React\Stream\WritableStreamInterface;
 
 class StreamServiceProvider extends ServiceProvider implements DeferrableProvider
 {

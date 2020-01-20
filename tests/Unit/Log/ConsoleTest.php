@@ -2,12 +2,12 @@
 
 namespace Laravie\Stream\Tests\Unit\Log;
 
-use Mockery as m;
-use Laravie\Stream\Logger;
+use JakubOnderka\PhpConsoleColor\ConsoleColor;
 use Laravie\Stream\Log\Console;
+use Laravie\Stream\Logger;
+use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use React\Stream\WritableStreamInterface;
-use JakubOnderka\PhpConsoleColor\ConsoleColor;
 
 class ConsoleTest extends TestCase
 {
