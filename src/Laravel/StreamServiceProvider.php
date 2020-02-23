@@ -11,7 +11,7 @@ use React\Stream\WritableStreamInterface;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
-class StreamServiceProvider extends ServiceProvider implements DeferrableProvider
+class StreamServiceProvider extends ServiceProvider
 {
     /**
      * Register the application services.
@@ -56,5 +56,15 @@ class StreamServiceProvider extends ServiceProvider implements DeferrableProvide
             LoopInterface::class,
             WritableStreamInterface::class,
         ];
+    }
+
+    /**
+     * Determine if the provider is deferred.
+     *
+     * @return bool
+     */
+    public function isDeferred()
+    {
+        return true;
     }
 }

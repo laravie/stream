@@ -20,12 +20,13 @@
         }
     },
     "require": {
+        "illuminate/support": "^5.5 || ^4.0",
         "jakub-onderka/php-console-color": "~0.2",
         "react/stream": "^1.1"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",
-        "orchestra/testbench": "^3.8 || ^4.0"
+        "orchestra/testbench": "^3.5 || ^4.0"
     },
     "config": {
         "sort-packages": true

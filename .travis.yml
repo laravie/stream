@@ -10,13 +10,22 @@ env:
   global:
     - coverage=no
   matrix:
-    - setup=basic
-    - setup=lowest
-    - setup=stable
+    - setup=stable laravel=^5.5.0
+    - setup=stable laravel=^5.6.0
+    - setup=stable laravel=^5.7.0
+    - setup=stable laravel=^5.8
+    - setup=stable laravel=^6.0
+    - setup=basic laravel=^5.8
+    - setup=basic laravel=^6.0
+    - setup=lowest laravel=^5.8
+    - setup=lowest laravel=^6.0
 
-before_script:
+before_install:
   - travis_retry composer self-update
   - composer config discard-changes true
+
+before_script:
+  - composer require "laravel/framework=${laravel}" --prefer-dist --no-interaction --no-suggest
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --prefer-dist --no-interaction --no-suggest; fi
   - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable; fi
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-lowest --prefer-stable; fi
@@ -31,12 +40,18 @@ after_script:
 
 matrix:
   include:
-    - php: 7.4snapshot
-      env: setup=basic
-    - php: 7.4snapshot
-      env: setup=stable
+    - php: 7.4
+      env: setup=basic laravel=^5.8
+    - php: 7.4
+      env: setup=stable laravel=^5.8
+    - php: 7.4
+      env: setup=basic laravel=^6.0
+    - php: 7.4
+      env: setup=stable laravel=^6.0
+    - php: 7.4
+      env: setup=lowest laravel=^6.0
     - php: 7.1
-      env: setup=coveralls coverage=yes
+      env: setup=coveralls coverage=yes laravel=^6.0
   allow_failures:
-    - env: setup=coveralls coverage=yes
+    - env: setup=coveralls coverage=yes laravel=^6.0
   fast_finish: true
