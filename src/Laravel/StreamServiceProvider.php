@@ -2,14 +2,13 @@
 
 namespace Laravie\Stream\Laravel;
 
-use React\EventLoop\Factory;
-use React\Stream\ThroughStream;
-use React\EventLoop\LoopInterface;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
+use React\EventLoop\Factory;
+use React\EventLoop\LoopInterface;
+use React\Stream\ThroughStream;
 use React\Stream\WritableResourceStream;
 use React\Stream\WritableStreamInterface;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Contracts\Support\DeferrableProvider;
 
 class StreamServiceProvider extends ServiceProvider
 {
@@ -24,20 +23,18 @@ class StreamServiceProvider extends ServiceProvider
             return Factory::create();
         });
 
-        $this->app->singleton(WritableStreamInterface::class, function (Container $app) {
-            return $this->createOutputStream($app->make(LoopInterface::class));
+        $this->app->singleton(WritableStreamInterface::class, function () {
+            return $this->createOutputStream();
         });
     }
 
     /**
      * Get an output stream.
-     *
-     * @return \React\Stream\WritableStreamInterface
      */
-    protected function createOutputStream(LoopInterface $eventLoop): WritableStreamInterface
+    protected function createOutputStream(): WritableStreamInterface
     {
         if (\defined('STDOUT')) {
-            return new WritableResourceStream(STDOUT, $eventLoop);
+            return new WritableResourceStream(STDOUT, $this->app->make(LoopInterface::class));
         }
 
         return new ThroughStream(static function ($data) {
