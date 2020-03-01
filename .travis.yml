@@ -40,8 +40,6 @@ after_script:
 matrix:
   include:
     - php: 7.1
-      env: setup=stable laravel=~5.5.0
-    - php: 7.1
       env: setup=stable laravel=~5.6.0
     - php: 7.1
       env: setup=stable laravel=~5.7.0
