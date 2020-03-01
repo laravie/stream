@@ -3,8 +3,10 @@
 namespace Laravie\Stream\Tests\Feature;
 
 use React\EventLoop\LoopInterface;
+use React\Stream\ThroughStream;
 use React\Stream\WritableResourceStream;
 use React\Stream\WritableStreamInterface;
+use SebastianBergmann\Environment\OperatingSystem;
 
 class StreamServiceProviderTest extends TestCase
 {
@@ -15,6 +17,13 @@ class StreamServiceProviderTest extends TestCase
         $this->assertTrue($this->app->bound(WritableStreamInterface::class));
 
         $this->assertInstanceOf(LoopInterface::class, $this->app->make(LoopInterface::class));
-        $this->assertInstanceOf(WritableResourceStream::class, $this->app->make(WritableStreamInterface::class));
+
+        $writable = $this->app->make(WritableStreamInterface::class);
+
+        if ((new OperatingSystem())->getFamily() === 'Windows') {
+            $this->assertInstanceOf(ThroughStream::class, $writable);
+        } else {
+            $this->assertInstanceOf(WritableResourceStream::class, $writable);
+        }
     }
 }
