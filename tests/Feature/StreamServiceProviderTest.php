@@ -6,7 +6,6 @@ use React\EventLoop\LoopInterface;
 use React\Stream\ThroughStream;
 use React\Stream\WritableResourceStream;
 use React\Stream\WritableStreamInterface;
-use SebastianBergmann\Environment\OperatingSystem;
 
 class StreamServiceProviderTest extends TestCase
 {
@@ -20,7 +19,7 @@ class StreamServiceProviderTest extends TestCase
 
         $writable = $this->app->make(WritableStreamInterface::class);
 
-        if ((new OperatingSystem())->getFamily() === 'Windows') {
+        if (DIRECTORY_SEPARATOR !== '/') {
             $this->assertInstanceOf(ThroughStream::class, $writable);
         } else {
             $this->assertInstanceOf(WritableResourceStream::class, $writable);

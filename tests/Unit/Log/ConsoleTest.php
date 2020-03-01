@@ -39,7 +39,7 @@ class ConsoleTest extends TestCase
         $stub = new Console($writer, $styler);
 
         $writer->shouldReceive('write')->once()->with(m::type('String'))->andReturnUsing(function ($message) {
-            $this->assertStringContainsString('Hello world', $message);
+            $this->expectContains('Hello world', $message);
         });
 
         $stub->info('Hello world');
@@ -54,7 +54,7 @@ class ConsoleTest extends TestCase
         $stub = new Console($writer, $styler);
 
         $writer->shouldReceive('write')->once()->with(m::type('String'))->andReturnUsing(function ($message) {
-            $this->assertStringContainsString('Hello world', $message);
+            $this->expectContains('Hello world', $message);
         });
 
         $stub->warn('Hello world');
@@ -69,9 +69,18 @@ class ConsoleTest extends TestCase
         $stub = new Console($writer, $styler);
 
         $writer->shouldReceive('write')->once()->with(m::type('String'))->andReturnUsing(function ($message) {
-            $this->assertStringContainsString('Hello world', $message);
+            $this->expectContains('Hello world', $message);
         });
 
         $stub->error('Hello world');
+    }
+
+    public function expectContains(string $needle, string $haystack): void
+    {
+        if (\method_exists($this, 'assertStringContainsString')) {
+            $this->assertStringContainsString($needle, $haystack);
+        } else {
+            $this->assertContains($needle, $haystack);
+        }
     }
 }
