@@ -38,11 +38,11 @@ class ConsoleTest extends TestCase
 
         $stub = new Console($writer, $styler);
 
-        $writer->shouldReceive('write')->once()->with("Hello world\n")->andReturnNull();
+        $writer->shouldReceive('write')->once()->with(m::type('String'))->andReturnUsing(function ($message) {
+            $this->assertStringContainsString('Hello world', $message);
+        });
 
         $stub->info('Hello world');
-
-        $this->addToAssertionCount(1);
     }
 
     /** @test */
@@ -53,11 +53,11 @@ class ConsoleTest extends TestCase
 
         $stub = new Console($writer, $styler);
 
-        $writer->shouldReceive('write')->once()->with("\033[33mHello world\033[0m\n")->andReturnNull();
+        $writer->shouldReceive('write')->once()->with(m::type('String'))->andReturnUsing(function ($message) {
+            $this->assertStringContainsString('Hello world', $message);
+        });
 
         $stub->warn('Hello world');
-
-        $this->addToAssertionCount(1);
     }
 
     /** @test */
@@ -68,10 +68,10 @@ class ConsoleTest extends TestCase
 
         $stub = new Console($writer, $styler);
 
-        $writer->shouldReceive('write')->once()->with("\033[31mHello world\033[0m\n")->andReturnNull();
+        $writer->shouldReceive('write')->once()->with(m::type('String'))->andReturnUsing(function ($message) {
+            $this->assertStringContainsString('Hello world', $message);
+        });
 
         $stub->error('Hello world');
-
-        $this->addToAssertionCount(1);
     }
 }
