@@ -4,9 +4,11 @@ namespace Laravie\Stream\Log;
 
 use JakubOnderka\PhpConsoleColor\ConsoleColor;
 use Laravie\Stream\Logger;
+use League\CLImate\CLImate;
+use League\CLImate\Util\Writer\WriterInterface;
 use React\Stream\WritableStreamInterface;
 
-class Console implements Logger
+class Console implements Logger, WriterInterface
 {
     /**
      * The stream writer implementation.
@@ -20,15 +22,18 @@ class Console implements Logger
      *
      * @var \JakubOnderka\PhpConsoleColor\ConsoleColor
      */
-    protected $consoleColor;
+    protected $climate;
 
     /**
      * Construct a console logger.
      */
-    public function __construct(WritableStreamInterface $writer, ConsoleColor $consoleColor)
+    public function __construct(WritableStreamInterface $writer, CLImate $climate)
     {
         $this->writer = $writer;
-        $this->consoleColor = $consoleColor;
+        $this->climate = $climate;
+
+        $climate->output->add('stream', $this);
+        $climate->output->defaultTo('stream');
     }
 
     /**
@@ -36,7 +41,7 @@ class Console implements Logger
      */
     public function info(string $message): void
     {
-        $this->writer->write("{$message}\n");
+        $this->write($message);
     }
 
     /**
@@ -44,7 +49,7 @@ class Console implements Logger
      */
     public function warn(string $message): void
     {
-        $this->info($this->consoleColor->apply('yellow', $message));
+        $this->climate->yellow($message);
     }
 
     /**
@@ -52,6 +57,16 @@ class Console implements Logger
      */
     public function error(string $message): void
     {
-        $this->info($this->consoleColor->apply('red', $message));
+        $this->climate->red($message);
+    }
+
+    /**
+     * @param  string $content
+     *
+     * @return void
+     */
+    public function write($content)
+    {
+        $this->writer->write("{$content}\n");
     }
 }

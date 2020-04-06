@@ -2,7 +2,7 @@
 
 namespace Laravie\Stream\Tests\Unit\Log;
 
-use JakubOnderka\PhpConsoleColor\ConsoleColor;
+use League\CLImate\CLImate;
 use Laravie\Stream\Log\Console;
 use Laravie\Stream\Logger;
 use Mockery as m;
@@ -23,7 +23,7 @@ class ConsoleTest extends TestCase
     public function it_has_proper_signature()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor();
+        $styler = new CLImate();
 
         $stub = new Console($writer, $styler);
 
@@ -34,7 +34,7 @@ class ConsoleTest extends TestCase
     public function it_can_write_info()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor();
+        $styler = new CLImate();
 
         $stub = new Console($writer, $styler);
 
@@ -49,7 +49,7 @@ class ConsoleTest extends TestCase
     public function it_can_write_warn()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor();
+        $styler = new CLImate();
 
         $stub = new Console($writer, $styler);
 
@@ -64,7 +64,7 @@ class ConsoleTest extends TestCase
     public function it_can_write_error()
     {
         $writer = m::mock(WritableStreamInterface::class);
-        $styler = new ConsoleColor();
+        $styler = new CLImate();
 
         $stub = new Console($writer, $styler);
 
