@@ -32,8 +32,8 @@ class Console implements Logger, WriterInterface
         $this->writer = $writer;
         $this->climate = $climate;
 
-        $climate->output->add('stream', $this);
-        $climate->output->defaultTo('stream');
+        $climate->output->add('logger', $this);
+        $climate->output->defaultTo('logger');
     }
 
     /**
@@ -41,7 +41,7 @@ class Console implements Logger, WriterInterface
      */
     public function info(string $message): void
     {
-        $this->write($message);
+        $this->write("{$message}\n");
     }
 
     /**
@@ -67,6 +67,6 @@ class Console implements Logger, WriterInterface
      */
     public function write($content)
     {
-        $this->writer->write("{$content}\n");
+        $this->writer->write($content);
     }
 }
