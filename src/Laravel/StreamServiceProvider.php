@@ -19,7 +19,7 @@ class StreamServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(LoopInterface::class, static function () {
+        $this->app->bind(LoopInterface::class, static function () {
             return Factory::create();
         });
 
