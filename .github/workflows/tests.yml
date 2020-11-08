@@ -31,6 +31,10 @@ jobs:
           - os: "ubuntu-latest"
             php: "8.0"
             dependencies: "highest"
+            laravel:
+              - "6.x"
+              - "7.x"
+              - "8.x"
             composer-options: "--ignore-platform-reqs"
             experimental: true
 
