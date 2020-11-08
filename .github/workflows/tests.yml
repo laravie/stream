@@ -28,8 +28,7 @@ jobs:
         experimental:
           - false
         include:
-          - os:
-              - "ubuntu-latest"
+          - os: "ubuntu-latest"
             php: "8.0"
             dependencies: "highest"
             composer-options: "--ignore-platform-reqs"
@@ -78,8 +77,7 @@ jobs:
         experimental:
           - false
         include:
-          - os:
-              - "ubuntu-latest"
+          - os: "ubuntu-latest"
             php: "7.1"
             dependencies:
               - "locked"
