@@ -27,25 +27,6 @@ jobs:
           - "8.x"
         experimental:
           - false
-        include:
-          - os: "ubuntu-latest"
-            php: "8.0"
-            dependencies: "highest"
-            laravel: "6.x"
-            composer-options: "--ignore-platform-reqs"
-            experimental: true
-          - os: "ubuntu-latest"
-            php: "8.0"
-            dependencies: "highest"
-            laravel: "7.x"
-            composer-options: "--ignore-platform-reqs"
-            experimental: true
-          - os: "ubuntu-latest"
-            php: "8.0"
-            dependencies: "highest"
-            laravel: "8.x"
-            composer-options: "--ignore-platform-reqs"
-            experimental: true
 
     name: Laravel ${{ matrix.laravel }} on PHP${{ matrix.php }}-${{ matrix.os }} (${{ matrix.dependencies }})
 
