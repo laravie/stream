@@ -31,10 +31,19 @@ jobs:
           - os: "ubuntu-latest"
             php: "8.0"
             dependencies: "highest"
-            laravel:
-              - "6.x"
-              - "7.x"
-              - "8.x"
+            laravel: "6.x"
+            composer-options: "--ignore-platform-reqs"
+            experimental: true
+          - os: "ubuntu-latest"
+            php: "8.0"
+            dependencies: "highest"
+            laravel: "7.x"
+            composer-options: "--ignore-platform-reqs"
+            experimental: true
+          - os: "ubuntu-latest"
+            php: "8.0"
+            dependencies: "highest"
+            laravel: "8.x"
             composer-options: "--ignore-platform-reqs"
             experimental: true
 
@@ -83,10 +92,15 @@ jobs:
         include:
           - os: "ubuntu-latest"
             php: "7.1"
-            dependencies:
-              - "locked"
-              - "highest"
-              - "lowest"
+            dependencies: "locked"
+            laravel: "5.8.x"
+          - os: "ubuntu-latest"
+            php: "7.1"
+            dependencies: "highest"
+            laravel: "5.8.x"
+          - os: "ubuntu-latest"
+            php: "7.1"
+            dependencies: "lowest"
             laravel: "5.8.x"
 
     name: Laravel ${{ matrix.laravel }} on PHP${{ matrix.php }}-${{ matrix.os }} (${{ matrix.dependencies }})
