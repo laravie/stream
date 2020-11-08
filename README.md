@@ -1,7 +1,7 @@
 Common Component using ReactPHP Stream
 ==============
 
-[![Build Status](https://travis-ci.org/laravie/stream.svg?branch=master)](https://travis-ci.org/laravie/stream)
+[![tests](https://github.com/laravie/stream/workflows/tests/badge.svg?branch=master)](https://github.com/laravie/stream/actions?query=workflow%3Atests+branch%3Amaster)
 [![Latest Stable Version](https://poser.pugx.org/laravie/stream/v/stable)](https://packagist.org/packages/laravie/stream)
 [![Total Downloads](https://poser.pugx.org/laravie/stream/downloads)](https://packagist.org/packages/laravie/stream)
 [![Latest Unstable Version](https://poser.pugx.org/laravie/stream/v/unstable)](https://packagist.org/packages/laravie/stream)
