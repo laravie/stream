@@ -75,14 +75,17 @@ jobs:
             php: "7.1"
             dependencies: "locked"
             laravel: "5.8.x"
+            experimental: false
           - os: "ubuntu-latest"
             php: "7.1"
             dependencies: "highest"
             laravel: "5.8.x"
+            experimental: false
           - os: "ubuntu-latest"
             php: "7.1"
             dependencies: "lowest"
             laravel: "5.8.x"
+            experimental: false
 
     name: Laravel ${{ matrix.laravel }} on PHP${{ matrix.php }}-${{ matrix.os }} (${{ matrix.dependencies }})
 
