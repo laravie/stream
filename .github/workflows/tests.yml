@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 3'
 
 jobs:
   tests:
@@ -48,7 +48,9 @@ jobs:
       - name: Install dependencies
         uses: "ramsey/composer-install@v1"
         with:
+          dependency-versions: "${{ matrix.dependencies }}"
           composer-options: "--prefer-dist"
+
       - name: Execute tests
         run: vendor/bin/phpunit
 
@@ -76,14 +78,17 @@ jobs:
             php: "7.1"
             dependencies: "locked"
             laravel: "5.8.x"
+            experimental: false
           - os: "ubuntu-latest"
             php: "7.1"
             dependencies: "highest"
             laravel: "5.8.x"
+            experimental: false
           - os: "ubuntu-latest"
             php: "7.1"
             dependencies: "lowest"
             laravel: "5.8.x"
+            experimental: false
 
     name: Laravel ${{ matrix.laravel }} on PHP${{ matrix.php }}-${{ matrix.os }} (${{ matrix.dependencies }})
 
@@ -104,6 +109,7 @@ jobs:
       - name: Install dependencies
         uses: "ramsey/composer-install@v1"
         with:
+          dependency-versions: "${{ matrix.dependencies }}"
           composer-options: "--prefer-dist"
       - name: Execute tests
         run: vendor/bin/phpunit
