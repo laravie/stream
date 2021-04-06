@@ -2,6 +2,7 @@
 
 namespace Laravie\Stream\Laravel;
 
+use Illuminate\Container\Container;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use React\EventLoop\Factory;
@@ -34,7 +35,7 @@ class StreamServiceProvider extends ServiceProvider
     protected function createOutputStream(): WritableStreamInterface
     {
         if (\defined('STDOUT') && DIRECTORY_SEPARATOR === '/') {
-            return new WritableResourceStream(STDOUT, $this->app->make(LoopInterface::class));
+            return new WritableResourceStream(STDOUT, Container::getInstance()->make(LoopInterface::class));
         }
 
         return new ThroughStream(static function ($data) {
