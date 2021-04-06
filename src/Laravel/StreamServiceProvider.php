@@ -24,7 +24,7 @@ class StreamServiceProvider extends ServiceProvider
             return Factory::create();
         });
 
-        $this->app->singleton(WritableStreamInterface::class, function () {
+        $this->app->bind(WritableStreamInterface::class, function () {
             return $this->createOutputStream();
         });
     }
@@ -35,7 +35,7 @@ class StreamServiceProvider extends ServiceProvider
     protected function createOutputStream(): WritableStreamInterface
     {
         if (\defined('STDOUT') && DIRECTORY_SEPARATOR === '/') {
-            return new WritableResourceStream(STDOUT, Container::getInstance()->make(LoopInterface::class));
+            return new WritableResourceStream(STDOUT, $this->app->make(LoopInterface::class));
         }
 
         return new ThroughStream(static function ($data) {
