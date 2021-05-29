@@ -33,7 +33,7 @@ class StreamServiceProvider extends ServiceProvider
     protected function createOutputStream(): WritableStreamInterface
     {
         if (\defined('STDOUT') && DIRECTORY_SEPARATOR === '/') {
-            return new WritableResourceStream(STDOUT, $this->app->make(LoopInterface::class));
+            return new WritableResourceStream(STDOUT, app(LoopInterface::class));
         }
 
         return new ThroughStream(static function ($data) {
