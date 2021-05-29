@@ -2,9 +2,9 @@
 
 namespace Laravie\Stream\Tests\Unit\Log;
 
-use League\CLImate\CLImate;
 use Laravie\Stream\Log\Console;
 use Laravie\Stream\Logger;
+use League\CLImate\CLImate;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use React\Stream\WritableStreamInterface;
@@ -77,7 +77,7 @@ class ConsoleTest extends TestCase
 
     public function expectContains(string $needle, string $haystack): void
     {
-        if (\method_exists($this, 'assertStringContainsString')) {
+        if (method_exists($this, 'assertStringContainsString')) {
             $this->assertStringContainsString($needle, $haystack);
         } else {
             $this->assertContains($needle, $haystack);

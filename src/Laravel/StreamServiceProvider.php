@@ -2,8 +2,6 @@
 
 namespace Laravie\Stream\Laravel;
 
-use Illuminate\Container\Container;
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;

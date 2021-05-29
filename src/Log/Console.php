@@ -2,7 +2,6 @@
 
 namespace Laravie\Stream\Log;
 
-use JakubOnderka\PhpConsoleColor\ConsoleColor;
 use Laravie\Stream\Logger;
 use League\CLImate\CLImate;
 use League\CLImate\Util\Writer\WriterInterface;
