@@ -19,7 +19,7 @@ class Console implements Logger, WriterInterface
     /**
      * Console styler.
      *
-     * @var \JakubOnderka\PhpConsoleColor\ConsoleColor
+     * @var \League\CLImate\CLImate
      */
     protected $climate;
 

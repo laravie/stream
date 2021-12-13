@@ -44,7 +44,7 @@ class StreamServiceProvider extends ServiceProvider
     /**
      * Get the services provided by the provider.
      *
-     * @return array
+     * @return array<int, class-string>
      */
     public function provides()
     {
