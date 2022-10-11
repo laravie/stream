@@ -37,7 +37,6 @@ jobs:
             laravel: "9.x"
             experimental: false
 
-
     name: Laravel ${{ matrix.laravel }} on PHP${{ matrix.php }}-${{ matrix.os }} (${{ matrix.dependencies }})
 
     steps:
@@ -60,6 +59,9 @@ jobs:
         with:
           dependency-versions: "${{ matrix.dependencies }}"
           composer-options: "--prefer-dist --no-cache"
+
+      - name: Installed dependencies
+        run: composer show -D
 
       - name: Execute tests
         run: vendor/bin/phpunit
