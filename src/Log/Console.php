@@ -60,8 +60,7 @@ class Console implements Logger, WriterInterface
     }
 
     /**
-     * @param  string $content
-     *
+     * @param  string  $content
      * @return void
      */
     public function write($content)
