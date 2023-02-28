@@ -21,13 +21,13 @@
     },
     "require": {
         "php": "^8.0",
-        "illuminate/support": "^8.75 || ^9.34",
+        "illuminate/support": "^8.75 || ^9.34 || ^10.0",
         "react/stream": "^1.1"
     },
     "require-dev": {
         "league/climate": "^3.5",
         "phpstan/phpstan": "^1.0",
-        "orchestra/testbench": "^6.25.1 || ^7.10.1"
+        "orchestra/testbench": "^6.25.1 || ^7.10.1 || ^8.0"
     },
     "suggest": {
         "league/climate": "Required to use Console Logger (^3.5)."
